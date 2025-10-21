@@ -3,14 +3,19 @@
 
 yaer_new = 2025
 age = input("Введите возраст: ")
-try:
-    age = int(age)
-    assert age > 0, "Вы еще не родились"
-    assert age < 200, "Стока не живут"
 
-except (ValueError, AssertionError) as e:
+# в блоке tru прописываем команды при выполнении которых
+# могут появляться ошики 
+
+try:                                  
+    age = int(age)
+    assert age > 0, "Вы еще не родились" # вызываем ошибку если возраст меньше 0
+    assert age < 200, "Стока не живут" # вызываем ошибку если возраст больше 200
+except (ValueError, AssertionError) as e: # ловим исключения и выводим информацию на экран
     print("Возникла ошибка: ", e)
-    age = None
+    age = None # влучае возникновения исключения присваиваем age значение None
+
+# если age Истинно печатаем возраст
 if age:
     age_ = yaer_new - age
     print(age_)
